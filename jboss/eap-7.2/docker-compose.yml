@@ -1,0 +1,12 @@
+version: '3'
+services:
+    jboss-eap7: 
+        restart: always    
+        image: hbarroco/jboss:eap-7.2
+        ports:
+            - 9990:9990
+            - 8080:8080
+            - 8443:8443
+            - 5005:5005              
+        volumes:
+            - ./target/:/home/jboss/jboss-eap-7.2/standalone/deployments

@@ -1,0 +1,5 @@
+> Build Image
+>> docker build -t hbarroco/jboss:eap-7.2 -f Dockerfile .
+
+> Up current dockerfile
+>> docker run -d --name jboss-eap7-server -p 9990:9990 -p 8080:8080 -p 8443:8443 -p 5005:5005 hbarroco/jboss:eap-7.2 -f Dockerfile
