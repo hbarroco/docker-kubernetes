@@ -1,0 +1,5 @@
+> Build Image
+>> docker build -t hbarroco/websphere:9.0.0.11 -f Dockerfile .
+
+> Up current dockerfile
+>> docker run -d --name websphere9-server -p 9060:9060 -p 9080:9080 -p 9043:9043 -p 9443:9443 hbarroco/websphere:9.0.0.11
