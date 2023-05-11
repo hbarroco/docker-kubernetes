@@ -5,3 +5,5 @@
 2.2) minikube config set driver docker
 2.3) 	minikube start 
 
+
+https://minikube.sigs.k8s.io/docs/start/
