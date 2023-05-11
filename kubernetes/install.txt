@@ -1,0 +1,7 @@
+1) Install https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+2)  Install minikube https://minikube.sigs.k8s.io/docs/start/
+2.1) Following sinte instructions
+2.2) minikube config set driver docker
+2.3) 	minikube start 
+

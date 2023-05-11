@@ -1,0 +1,42 @@
+Commands
+
+-- General
+minikube start (start cluster)
+minikube status
+minikube delete (delete cluster)
+kubectl run nginx --image nginx (create image)
+kubectl get pods
+kubectl get pods -o wide
+kubectl describe pod nginx
+kubectl create -f file.yaml or kubectl apply -f file.yaml --save-config [Create]
+kubectl delete pod [podname]
+kubectl delete replicaset [rsname]
+kubectl get all
+
+-- Deployment
+kubectl create -f frontend.yaml --save-config --record
+kubectl apply -f frontend.yaml
+kubectl set image deployment frontend-dp frontend-container=nginx:1.18 --record
+kubectl rollout status deployment/frontend-dp
+kubectl delete deployment/frontend-dp
+kubectl rollout undo deployment/frontend-dp
+kubectl rollout undo deployment/frontend-dp --to-revision=1
+kubectl rollout  history deployment/frontend-dp
+
+-- Scale
+kubectl scale deployment/frontend-dp --replicas=20
+
+-- Sampe pod access mysql other pod
+kubectl create -f mysql.yaml --save-config --record
+kubectl create -f webapp.yaml --save-config --record
+kubectl describe pod mysql-pod
+kubectl exec -it webapp-5db44756bc-bclr6 -- bash
+-> mysql
+apt install default-mysql-client -y
+mysql -h 10.244.0.3 -uroot -ppassword geek
+
+-- Sample expor pod with NodePort
+kubectl create -f frontend-svc-dp.yaml --save-config --record
+kubectl create -f frontend-svc-nodeport.yaml --save-config --record
+kubectl describe service frontend-svc-nodeport 
+minikube service frontend-svc-nodeport  --url
